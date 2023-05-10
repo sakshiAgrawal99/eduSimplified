@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { StudentDetailsComponent } from './admin/student-details/student-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    StudentDetailsComponent
   ],
   imports: [
     BrowserModule
