@@ -6,6 +6,17 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { StudentDetailsComponent } from './admin/student-details/student-details.component';
 import { ModalComponent } from './admin/modal/modal.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
+  { path: 'admin/dashboard', component: AdminDashboardComponent },
+  { path: 'admin/student-details', component: StudentDetailsComponent },
+  { path: 'landing-page', component: LandingPageComponent },
+];
 
 @NgModule({
   declarations: [
@@ -13,12 +24,20 @@ import { ModalComponent } from './admin/modal/modal.component';
     LandingPageComponent,
     AdminDashboardComponent,
     StudentDetailsComponent,
-    ModalComponent
+    ModalComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 15000, // 15 seconds
+      closeButton: true,
+      progressBar: true,
+    }),
+    AppRoutingModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

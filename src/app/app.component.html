@@ -12,12 +12,7 @@
     <div class="alert alert-dark alert-dismissible fade show mt-3" role="alert">
       <strong>Holy guacamole!</strong> You should check in on some of those
       fields below.
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"
-      ></button>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <app-landing-page></app-landing-page>
     <div class="col-md-6 col-sm-12 offset-2">
@@ -29,11 +24,7 @@
           </div>
           <div class="form-group mb-5">
             <label>Password</label>
-            <input
-              type="password"
-              class="form-control"
-              placeholder="Password"
-            />
+            <input type="password" class="form-control" placeholder="Password" />
           </div>
           <button type="submit" class="btn btn-black me-2">Login</button>
           <button type="submit" class="btn btn-secondary me-2">Register</button>
@@ -43,4 +34,7 @@
   </div>
 </div> -->
 
-<app-student-details></app-student-details>
+<!-- <app-student-details></app-student-details> -->
+
+<!-- <app-admin-dashboard></app-admin-dashboard> -->
+<router-outlet></router-outlet>

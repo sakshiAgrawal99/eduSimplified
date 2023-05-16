@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
@@ -7,5 +8,12 @@ import { ModalService } from 'src/app/services/modal.service';
   styleUrls: ['./student-details.component.css'],
 })
 export class StudentDetailsComponent {
-  constructor(protected modalService: ModalService) {}
+  constructor(
+    protected modalService: ModalService,
+    private toastrService: ToastrService
+  ) {}
+
+  public showSuccess(): void {
+    this.toastrService.success('Message Success!', 'Title Success!');
+  }
 }
