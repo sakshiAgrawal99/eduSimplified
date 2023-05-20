@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "https://bkbcollegemanagementapi.azure-api.net",
+    "secure": false
+  }
+}

@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
@@ -40,6 +42,8 @@ const routes: Routes = [
       progressBar: true,
     }),
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
   ],
   providers: [],
