@@ -7,7 +7,7 @@ import { User } from '../models/user';
   providedIn: 'root',
 })
 export class AccountService {
-  baseUrl = 'https://bkbcollegemanagementapi.azure-api.net';
+  baseUrl = 'https://bkbcollegemanagement20230514173450.azurewebsites.net';
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
 
