@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AccountService } from '../services/account.service';
+import { Router } from '@angular/router';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,14 +11,16 @@ import { AccountService } from '../services/account.service';
 export class LandingPageComponent {
   model: any = {};
 
-  constructor(public accountService: AccountService) {}
+  constructor(public accountService: AccountService, private router: Router) {}
 
   ngOnInit(): void {}
 
   login() {
     this.accountService.login(this.model).subscribe({
-      next: () => {
-        // this.router.navigateByUrl('/members');
+      next: (user: User) => {
+        if (user.role === 'Admin') {
+          this.router.navigateByUrl('/admin/dashboard');
+        }
         this.model = {};
       },
     });
@@ -24,6 +28,6 @@ export class LandingPageComponent {
 
   logout() {
     this.accountService.logout();
-    // this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/');
   }
 }
