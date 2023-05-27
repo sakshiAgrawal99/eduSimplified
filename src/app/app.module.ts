@@ -14,13 +14,19 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TimetableEditorComponent } from './admin/timetable-editor/timetable-editor.component';
+import { CoursesComponent } from './admin/courses/courses.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
+  { path: 'landing-page', component: LandingPageComponent },
+
+  { path: 'admin/courses', component: CoursesComponent },
   { path: 'admin/dashboard', component: AdminDashboardComponent },
   { path: 'admin/student-details', component: StudentDetailsComponent },
-  { path: 'landing-page', component: LandingPageComponent },
-  // { path: 'landing-page', component: HeaderComponent },
+  { path: 'admin/time-table', component: TimetableEditorComponent },
+  { path: 'admin/study-material', component: StudentDetailsComponent },
+  { path: 'admin/announcements', component: TimetableEditorComponent },
 ];
 
 @NgModule({
@@ -32,6 +38,8 @@ const routes: Routes = [
     ModalComponent,
     FooterComponent,
     HeaderComponent,
+    TimetableEditorComponent,
+    CoursesComponent,
   ],
   imports: [
     BrowserModule,
