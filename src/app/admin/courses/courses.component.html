@@ -1,26 +1,10 @@
 <div class="p-5 m-5 row  justify-content-center align-items-center">
-    <div class="col-3 p-2" align="center">
-        <button type="button" class="btn btn-outline-primary block">Msc IT -Part 1</button>
-    </div>
+    <ng-container *ngIf="courseData.length>0">
+        <div class="col-3 p-2" align="center" *ngFor="let course of courseData;let i = index ">
+            <button type="button" class="btn block" [ngClass]="getClass(i)">{{course.courseName}}</button>
+        </div>
+    </ng-container>
 
-    <div class="col-3 p-2" align="center">
-        <button type="button" class="btn btn-outline-secondary block">Msc IT -Part 2</button>
-    </div>
 
-    <div class="col-3 p-2" align="center">
-        <button type="button" class="btn btn-outline-success block">Msc IT -Part 1</button>
-    </div>
-
-    <div class="col-3 p-2" align="center">
-        <button type="button" class="btn btn-outline-warning block">Msc IT -Part 1</button>
-    </div>
-
-    <div class="col-3 p-2" align="center">
-        <button type="button" class="btn btn-outline-danger block">Msc IT -Part 2</button>
-    </div>
-
-    <div class="col-3 p-2" align="center">
-        <button type="button" class="btn btn-outline-dark block">Msc IT -Part 1</button>
-    </div>
 
 </div>
