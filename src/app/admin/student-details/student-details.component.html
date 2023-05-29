@@ -1,172 +1,51 @@
 <div class="p-5 m-5">
   <div class="row mt-3">
-    <div class="col-4 p-2">
-      <div class="card mb-3" style="max-width: 540px">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="assets/Images/studentLogo.jpg" class="img-fluid rounded-start" alt="..." />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
+    <ng-container *ngIf="studentData.length>0">
+      <div class="col-4 p-2" *ngFor="let student of studentData;let i = index ">
+        <div class="card mb-3" style="max-width: 540px">
+          <div class="row g-0 justify-content-center align-items-center">
+            <div class="col-md-4" *ngIf="student.gender==='Female'">
+              <img src="assets/Images/studentLogo.jpg" class="img-fluid rounded-start" alt="..."
+                style="height: 10rem" />
+            </div>
+            <div class="col-md-4" *ngIf="student.gender==='Male'">
+              <img src=" assets/Images/adminLogo.jpg" class="img-fluid rounded-start" alt="..." style="height: 10rem" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body pb-3">
+                <h5 class="card-title">{{student.fullName}}</h5>
+                <div>
+                  <strong> Mobile No: </strong>
+                </div>
+                <div class="pb-2">
+                  {{student.phoneNumber}}
+                </div>
 
-              <div>
-                <a href="#" class="card-link">Edit Details</a>
-                <a href="#" class="card-link">Send Message</a>
+                <div>
+                  <strong>Email:</strong>
+                </div>
+                <div class="pb-3">
+                  {{student.email}}
+                </div>
+
+                <p class="card-text">
+                  <small class="text-muted">Last updated {{getDays(student.lastModified)}} days ago</small>
+                </p>
+
+                <div>
+                  <button type="button" (click)="modalService.open('modal-1')" class="btn btn-link">
+                    Edit Details
+                  </button>
+                  <button type="button" (click)="modalService.open('modal-1')" class="btn btn-link">
+                    Send Message
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-4 p-2">
-      <div class="card mb-3" style="max-width: 540px">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="assets/Images/studentLogo.jpg" class="img-fluid rounded-start" alt="..." />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-
-              <div>
-                <a href="#" class="card-link">Edit Details</a>
-                <a href="#" class="card-link">Send Message</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-4 p-2">
-      <div class="card mb-3" style="max-width: 540px">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="assets/Images/studentLogo.jpg" class="img-fluid rounded-start" alt="..." />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-
-              <div>
-                <a href="#" class="card-link">Edit Details</a>
-                <a href="#" class="card-link">Send Message</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-4 p-2">
-      <div class="card mb-3" style="max-width: 540px">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="assets/Images/studentLogo.jpg" class="img-fluid rounded-start" alt="..." />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-
-              <div>
-                <a href="#" class="card-link">Edit Details</a>
-                <a href="#" class="card-link">Send Message</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-4 p-2">
-      <div class="card mb-3" style="max-width: 540px">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="assets/Images/studentLogo.jpg" class="img-fluid rounded-start" alt="..." />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-
-              <div>
-                <a href="#" class="card-link">Edit Details</a>
-                <a href="#" class="card-link">Send Message</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-4 p-2">
-      <div class="card mb-3" style="max-width: 540px">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="assets/Images/studentLogo.jpg" class="img-fluid rounded-start" alt="..." />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
-
-              <div>
-                <button type="button" (click)="modalService.open('modal-1')" class="btn btn-link">
-                  Edit Details
-                </button>
-                <button type="button" (click)="modalService.open('modal-1')" class="btn btn-link">
-                  Send Message
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </ng-container>
   </div>
 </div>
 

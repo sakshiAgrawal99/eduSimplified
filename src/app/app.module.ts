@@ -22,8 +22,11 @@ const routes: Routes = [
   { path: 'landing-page', component: LandingPageComponent },
 
   { path: 'admin/courses', component: CoursesComponent },
-  { path: 'admin/dashboard', component: AdminDashboardComponent },
-  { path: 'admin/student-details', component: StudentDetailsComponent },
+  { path: 'admin/:courseId/dashboard', component: AdminDashboardComponent },
+  {
+    path: 'admin/:courseId/student-details',
+    component: StudentDetailsComponent,
+  },
   { path: 'admin/time-table', component: TimetableEditorComponent },
   { path: 'admin/study-material', component: StudentDetailsComponent },
   { path: 'admin/announcements', component: TimetableEditorComponent },

@@ -1,7 +1,8 @@
 <div class="p-5 m-5 row  justify-content-center align-items-center">
     <ng-container *ngIf="courseData.length>0">
         <div class="col-3 p-2" align="center" *ngFor="let course of courseData;let i = index ">
-            <button type="button" class="btn block" [ngClass]="getClass(i)">{{course.courseName}}</button>
+            <button type="button" class="btn block" [ngClass]="getClass(i)"
+                (click)="courseClicked(course.courseId)">{{course.courseName}}</button>
         </div>
     </ng-container>
 

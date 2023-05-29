@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CoursesService } from 'src/app/services/courses.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { CoursesService } from 'src/app/services/courses.service';
 export class CoursesComponent {
   courseData: any[] = [];
 
-  constructor(public coursesService: CoursesService) {
+  constructor(public coursesService: CoursesService, private router: Router) {
     this.coursesService.getCourses().subscribe((res) => {
       this.courseData = res;
       console.log(this.courseData);
@@ -33,5 +34,9 @@ export class CoursesComponent {
       return 'btn-outline-danger';
     }
     return 'btn-outline-dark';
+  }
+
+  courseClicked(courseId: number) {
+    this.router.navigateByUrl('/admin/' + courseId + '/dashboard');
   }
 }
