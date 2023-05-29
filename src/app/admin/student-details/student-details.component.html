@@ -33,10 +33,8 @@
                 </p>
 
                 <div>
-                  <button type="button" (click)="modalService.open('modal-1')" class="btn btn-link">
-                    Edit Details
-                  </button>
-                  <button type="button" (click)="modalService.open('modal-1')" class="btn btn-link">
+                  <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    (click)="openModal(student.userId)">
                     Send Message
                   </button>
                 </div>
@@ -49,12 +47,23 @@
   </div>
 </div>
 
-<jw-modal id="modal-1">
-  <h1>Write a Message to Send</h1>
-  <p>
-    You can send short message for your student:
-    <input type="text" style="width: 100%" />
-  </p>
-  <button class="btn btn-secondary me-2" (click)="showSuccess()">Close</button>
-  <button class="btn btn-dark me-2">Send</button>
-</jw-modal>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Write a Message to Send</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <p class="p-2">
+        You can send short message for your student:
+        <input #messsage type="text" style="width: 100%" />
+      </p>
+      <div class="modal-footer">
+        <button class="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-dark me-2" (click)="sendMessage(messsage.value)">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
