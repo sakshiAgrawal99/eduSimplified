@@ -1,0 +1,11 @@
+<div class="p-5 m-5 row  justify-content-center align-items-center">
+    <ng-container *ngIf="subjectData.length>0">
+        <div class="col-5 p-3" align="center" *ngFor="let subject of subjectData;let i = index ">
+            <button type="button" class="btn block" [ngClass]="getClass(i)"
+                (click)="subjectClicked(subject.subjectId)">{{subject.subjectName}}</button>
+        </div>
+    </ng-container>
+
+
+
+</div>

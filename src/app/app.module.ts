@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TimetableEditorComponent } from './admin/timetable-editor/timetable-editor.component';
 import { CoursesComponent } from './admin/courses/courses.component';
+import { SubjectsComponent } from './admin/subjects/subjects.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'admin/time-table', component: TimetableEditorComponent },
   { path: 'admin/study-material', component: StudentDetailsComponent },
   { path: 'admin/announcements', component: TimetableEditorComponent },
+  { path: 'admin/:courseId/subjects', component: SubjectsComponent },
 ];
 
 @NgModule({
@@ -43,6 +45,7 @@ const routes: Routes = [
     HeaderComponent,
     TimetableEditorComponent,
     CoursesComponent,
+    SubjectsComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,4 +63,4 @@ const routes: Routes = [
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
