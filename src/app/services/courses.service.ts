@@ -6,9 +6,15 @@ import { Injectable } from '@angular/core';
 })
 export class CoursesService {
   bseUrl = 'https://bkbcollegemanagementapi.azure-api.net';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getCourses() {
     return this.http.get<any[]>(this.bseUrl + '/api/Courses');
+  }
+
+  getSubjects(courseId: number) {
+    return this.http.get<any[]>(
+      this.bseUrl + '/api/courses/' + courseId + '/subjects'
+    );
   }
 }
