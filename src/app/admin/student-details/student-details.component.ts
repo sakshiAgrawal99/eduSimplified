@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { take } from 'rxjs';
+import { AccountService } from 'src/app/services/account.service';
 import { ModalService } from 'src/app/services/modal.service';
 import { SendMessageService } from 'src/app/services/send-message.service';
 import { UserService } from 'src/app/services/user.service';
@@ -18,7 +20,8 @@ export class StudentDetailsComponent {
     private toastrService: ToastrService,
     private route: ActivatedRoute,
     private userService: UserService,
-    private sendMessageService: SendMessageService
+    private sendMessageService: SendMessageService,
+    public accountService: AccountService
   ) {}
 
   ngOnInit(): void {
@@ -31,7 +34,7 @@ export class StudentDetailsComponent {
   }
 
   public showSuccess(): void {
-    this.toastrService.success('Message Success!', 'Title Success!');
+    this.toastrService.success('Message Sent Successfully!', '');
   }
 
   public getDays(dateSent: Date) {
@@ -61,13 +64,15 @@ export class StudentDetailsComponent {
     if (message && message.trim()) {
       const payload = {
         messageContent: message,
-        senderName: 'string@gmail.com',
+        senderName: JSON.parse(localStorage.getItem('user') || '').username,
         receiverId: this.selectedUserId,
         createdDate: '2023-05-29T19:12:06.334Z',
       };
       this.sendMessageService.sendMessage(payload).subscribe((res: any) => {
-        //to do:close modal and get logged in user name, success message text change
         this.showSuccess();
+        document.getElementById('closeModal')?.click();
+        (document.getElementById('messageInput') as HTMLInputElement).value =
+          '';
       });
     }
   }

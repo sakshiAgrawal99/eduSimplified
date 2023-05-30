@@ -58,10 +58,10 @@
       </div>
       <p class="p-2">
         You can send short message for your student:
-        <input #messsage type="text" style="width: 100%" />
+        <input #messsage id="messageInput" type="text" style="width: 100%" />
       </p>
       <div class="modal-footer">
-        <button class="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-secondary me-2" id="closeModal" data-bs-dismiss="modal">Close</button>
         <button class="btn btn-dark me-2" (click)="sendMessage(messsage.value)">Send</button>
       </div>
     </div>

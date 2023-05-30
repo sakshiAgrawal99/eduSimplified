@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { User } from '../models/user';
 
 @Injectable({
@@ -67,6 +67,7 @@ export class AccountService {
     // const roles = this.getDecodedToken(user.token).role;
     // Array.isArray(roles) ? (user.roles = roles) : user.roles.push(roles);
     // localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSource.next(user);
   }
 
