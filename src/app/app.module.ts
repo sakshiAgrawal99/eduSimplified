@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TimetableEditorComponent } from './admin/timetable-editor/timetable-editor.component';
 import { CoursesComponent } from './admin/courses/courses.component';
 import { SubjectsComponent } from './admin/subjects/subjects.component';
+import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
@@ -46,6 +47,7 @@ const routes: Routes = [
     TimetableEditorComponent,
     CoursesComponent,
     SubjectsComponent,
+    StudentDashboardComponent,
   ],
   imports: [
     BrowserModule,

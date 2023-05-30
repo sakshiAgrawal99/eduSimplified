@@ -10,7 +10,7 @@
               <p class="card-text">
                 View User Details and send them important messages one-on-one.
               </p>
-              <a href="#" class="btn btn-primary">Proceed</a>
+              <a href="#" class="btn btn-dark">Proceed</a>
             </div>
           </div>
         </div>
@@ -22,7 +22,7 @@
               <p class="card-text">
                 Upload Timetable based on courses.
               </p>
-              <a href="#" class="btn btn-primary">Proceed</a>
+              <a href="#" class="btn btn-dark">Proceed</a>
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
               <p class="card-text">
                 Upload relevant study materials based on courses.
               </p>
-              <a [routerLink]="['/admin/time-table']" class="btn btn-primary">Proceed</a>
+              <a [routerLink]="['/admin/time-table']" class="btn btn-dark">Proceed</a>
             </div>
           </div>
         </div>
@@ -45,17 +45,36 @@
             <div class="card-body">
               <h5 class="card-title">Upload Announcements</h5>
               <p class="card-text">
-                Share announcements with the students.
+                Share announcements with the Users.
               </p>
-              <a href="#" class="btn btn-primary">Proceed</a>
+              <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Proceed
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
 
-
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Write a Message to Send</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <p class="p-2">
+        You can send short message for your Users:
+        <input #messsage id="messageInput" type="text" style="width: 100%" />
+      </p>
+      <div class="modal-footer">
+        <button class="btn btn-secondary me-2" id="closeModal" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-dark me-2" (click)="sendMessage(messsage.value)">Send</button>
+      </div>
+    </div>
   </div>
 </div>

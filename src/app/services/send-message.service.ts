@@ -12,4 +12,8 @@ export class SendMessageService {
   sendMessage(body = {}): Observable<any> {
     return this.http.post(this.baseUrl + '/api/Users/sendMessage', body).pipe();
   }
+
+  sendAnnouncement(body = {}): Observable<any> {
+    return this.http.post(this.baseUrl + '/api/Announcements', body).pipe();
+  }
 }
