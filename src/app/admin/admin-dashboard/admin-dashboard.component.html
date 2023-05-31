@@ -10,7 +10,7 @@
               <p class="card-text">
                 View User Details and send them important messages one-on-one.
               </p>
-              <a href="#" class="btn btn-dark">Proceed</a>
+              <button href="#" class="btn btn-dark" (click)="openStudentDetails()">Proceed</button>
             </div>
           </div>
         </div>
@@ -22,7 +22,7 @@
               <p class="card-text">
                 Upload Timetable based on courses.
               </p>
-              <a href="#" class="btn btn-dark">Proceed</a>
+              <button href="#" class="btn btn-dark" (click)="openUploadTimeTable()">Proceed</button>
             </div>
           </div>
         </div>
@@ -64,11 +64,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Write a Message to Send</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Post Announcement</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <p class="p-2">
-        You can send short message for your Users:
+        You can send short Announcements for your Users:
         <input #messsage id="messageInput" type="text" style="width: 100%" />
       </p>
       <div class="modal-footer">

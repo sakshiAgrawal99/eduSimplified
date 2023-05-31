@@ -3,7 +3,7 @@
         <a class="navbar-brand" routerLink="/" routerLinkActive="active">BKB-EduSimplified</a>
 
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <ng-container *ngIf="accountService.currentUser$  | async">
+            <ng-container *ngIf="isUserLoggedIn() === true">
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/members" [routerLinkActiveOptions]="{exact: true}"
                         routerLinkActive="active">Matches</a>
@@ -18,16 +18,13 @@
                     <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
                 </li> -->
             </ng-container>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/errors" routerLinkActive="active">Errors</a>
-            </li>
         </ul>
 
-        <div class="dropdown" *ngIf="(accountService.currentUser$  | async) as user">
+        <div class="dropdown" *ngIf="isUserLoggedIn() === true">
             <!-- <img src="{{user.photoUrl || './assets/user.png'}}" alt="user photo"> -->
             <a class="dropdown-toggle text-light text-decoration-none ms-2" data-bs-toggle="dropdown"
                 aria-expanded="false" id="dropdownMenuButton1">Welcome
-                {{user.username}}</a>
+                {{getUsername()}}</a>
             <div class="dropdown-menu mt-3" aria-labelledby="dropdownMenuButton1">
                 <a class="dropdown-item" routerLink="/member/edit">Edit Profile</a>
                 <a class="dropdown-item" (click)="logout()">Logout</a>

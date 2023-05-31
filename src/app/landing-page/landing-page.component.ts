@@ -11,9 +11,27 @@ import { User } from '../models/user';
 export class LandingPageComponent {
   model: any = {};
 
-  constructor(public accountService: AccountService, private router: Router) {}
+  constructor(public accountService: AccountService, private router: Router) {
+    this.IsUserLoggedIn();
+  }
 
   ngOnInit(): void {}
+
+  IsUserLoggedIn() {
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    if (
+      user.username &&
+      user.username.trim() &&
+      user.role &&
+      user.role.trim()
+    ) {
+      if (user.role === 'Admin') {
+        this.router.navigateByUrl('/admin/courses');
+      }
+      return true;
+    }
+    return false;
+  }
 
   login() {
     this.accountService.login(this.model).subscribe({

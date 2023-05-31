@@ -9,10 +9,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(public accountService: AccountService, private router: Router) {}
+  constructor(public accountService: AccountService, private router: Router) {
+    this.isUserLoggedIn();
+  }
+
+  isUserLoggedIn() {
+    const username = JSON.parse(localStorage.getItem('user') || '{}').username;
+    const role = JSON.parse(localStorage.getItem('user') || '{}').role;
+    if (username && username.trim() && role && role.trim()) {
+      return true;
+    }
+    return false;
+  }
 
   logout() {
     this.accountService.logout();
     this.router.navigateByUrl('/');
+  }
+
+  getUsername() {
+    return JSON.parse(localStorage.getItem('user') || '{}').username;
   }
 }

@@ -29,7 +29,10 @@ const routes: Routes = [
     path: 'admin/:courseId/student-details',
     component: StudentDetailsComponent,
   },
-  { path: 'admin/time-table', component: TimetableEditorComponent },
+  {
+    path: 'admin/:courseId/upload-timetable',
+    component: TimetableEditorComponent,
+  },
   { path: 'admin/study-material', component: StudentDetailsComponent },
   { path: 'admin/announcements', component: TimetableEditorComponent },
   { path: 'admin/:courseId/subjects', component: SubjectsComponent },
@@ -65,4 +68,4 @@ const routes: Routes = [
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

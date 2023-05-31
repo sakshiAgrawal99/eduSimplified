@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SendMessageService } from 'src/app/services/send-message.service';
 
@@ -10,7 +11,8 @@ import { SendMessageService } from 'src/app/services/send-message.service';
 export class AdminDashboardComponent {
   constructor(
     private toastrService: ToastrService,
-
+    private router: Router,
+    private route: ActivatedRoute,
     private sendMessageService: SendMessageService
   ) {}
 
@@ -35,5 +37,15 @@ export class AdminDashboardComponent {
             '';
         });
     }
+  }
+
+  openStudentDetails() {
+    const id = this.route.snapshot.paramMap.get('courseId');
+    this.router.navigateByUrl('/admin/' + id + '/student-details');
+  }
+
+  openUploadTimeTable() {
+    const id = this.route.snapshot.paramMap.get('courseId');
+    this.router.navigateByUrl('/admin/' + id + '/upload-timetable');
   }
 }

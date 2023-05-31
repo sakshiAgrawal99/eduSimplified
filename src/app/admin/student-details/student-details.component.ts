@@ -15,6 +15,7 @@ import { UserService } from 'src/app/services/user.service';
 export class StudentDetailsComponent {
   studentData: any[] = [];
   selectedUserId: number = -1;
+  studentDatafetched = false;
   constructor(
     protected modalService: ModalService,
     private toastrService: ToastrService,
@@ -29,6 +30,7 @@ export class StudentDetailsComponent {
     if (id) {
       this.userService.getStudents(parseInt(id)).subscribe((res) => {
         this.studentData = res;
+        this.studentDatafetched = true;
       });
     }
   }
