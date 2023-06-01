@@ -18,6 +18,7 @@ import { TimetableEditorComponent } from './admin/timetable-editor/timetable-edi
 import { CoursesComponent } from './admin/courses/courses.component';
 import { SubjectsComponent } from './admin/subjects/subjects.component';
 import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
+import { ViewAnnouncementComponent } from './admin/view-announcement/view-announcement.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
@@ -33,9 +34,11 @@ const routes: Routes = [
     path: 'admin/:courseId/upload-timetable',
     component: TimetableEditorComponent,
   },
-  { path: 'admin/study-material', component: StudentDetailsComponent },
-  { path: 'admin/announcements', component: TimetableEditorComponent },
   { path: 'admin/:courseId/subjects', component: SubjectsComponent },
+  {
+    path: 'admin/:courseId/view-announcements',
+    component: ViewAnnouncementComponent,
+  },
 ];
 
 @NgModule({
@@ -51,6 +54,7 @@ const routes: Routes = [
     CoursesComponent,
     SubjectsComponent,
     StudentDashboardComponent,
+    ViewAnnouncementComponent,
   ],
   imports: [
     BrowserModule,

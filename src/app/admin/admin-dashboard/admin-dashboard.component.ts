@@ -48,4 +48,9 @@ export class AdminDashboardComponent {
     const id = this.route.snapshot.paramMap.get('courseId');
     this.router.navigateByUrl('/admin/' + id + '/upload-timetable');
   }
+
+  openViewAnnouncements() {
+    const id = this.route.snapshot.paramMap.get('courseId');
+    this.router.navigateByUrl('/admin/' + id + '/view-announcements');
+  }
 }

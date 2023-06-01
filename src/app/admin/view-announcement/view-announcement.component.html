@@ -1,0 +1,11 @@
+<div class="p-5 m-5">
+    <div class="alert alert-dark alert-dismissible fade show mt-3" role="alert"
+        *ngFor="let announcement of announecmetData">
+        <strong> {{announcement.postedBy}}</strong>
+        <small class="text-muted p-2">Posted
+            {{getDays(announcement.postedAt)}} days ago</small>
+        <div class="message-body">{{announcement.announcementText}}
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
