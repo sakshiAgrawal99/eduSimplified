@@ -35,7 +35,8 @@
               <p class="card-text">
                 Upload relevant study materials based on courses.
               </p>
-              <a [routerLink]="['/admin/time-table']" class="btn btn-dark">Proceed</a>
+              <button [routerLink]="['/admin/time-table']" class="btn btn-dark"
+                (click)="openUploadStudyMaterial()">Proceed</button>
             </div>
           </div>
         </div>

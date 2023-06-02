@@ -2,10 +2,23 @@
     <ng-container *ngIf="subjectData.length>0">
         <div class="col-5 p-3" align="center" *ngFor="let subject of subjectData;let i = index ">
             <button type="button" class="btn block" [ngClass]="getClass(i)"
-                (click)="subjectClicked(subject.subjectId)">{{subject.subjectName}}</button>
+                (click)="subjectClicked(subject.subjectName)">{{subject.subjectName}}</button>
         </div>
     </ng-container>
 
 
-
+    <div class="list-group mt-5 pt-5" *ngIf="studyMaterial.length>0">
+        <a href="#" class="list-group-item list-group-item-action active">
+            {{selectedSubjectName}}
+        </a>
+        <div class="row" *ngFor="let material of studyMaterial">
+            <div class="col-10">
+                <a class="list-group-item list-group-item-action" target="_blank"
+                    [href]="material.uri">{{material.name.split('/')[material.name.split('/').length-1]}}</a>
+            </div>
+            <div class="col-2">
+                <button (click)="download(material.uri)" class="card-link btn btn-warning">Download</button>
+            </div>
+        </div>
+    </div>
 </div>

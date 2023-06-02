@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CoursesService } from 'src/app/services/courses.service';
+import { StudyMaterialService } from 'src/app/services/study-material.service';
 
 @Component({
   selector: 'app-subjects',
@@ -9,10 +10,14 @@ import { CoursesService } from 'src/app/services/courses.service';
 })
 export class SubjectsComponent {
   subjectData: any[] = [];
+  course: any = {};
+  studyMaterial: any[] = [];
+  selectedSubjectName = '';
 
- constructor(
+  constructor(
     private route: ActivatedRoute,
-    private coursesService: CoursesService
+    private coursesService: CoursesService,
+    private studyMaterialService: StudyMaterialService
   ) {}
 
   ngOnInit(): void {
@@ -20,6 +25,10 @@ export class SubjectsComponent {
     if (id) {
       this.coursesService.getSubjects(parseInt(id)).subscribe((res) => {
         this.subjectData = res;
+      });
+
+      this.coursesService.getCourse(id).subscribe((res) => {
+        this.course = res;
       });
     }
   }
@@ -43,7 +52,26 @@ export class SubjectsComponent {
     return 'btn-outline-dark';
   }
 
-  subjectClicked(courseId: number) {
-   alert('Subject clicked!')
+  subjectClicked(subjectName: string) {
+    if (subjectName && this.course.courseName) {
+      this.selectedSubjectName = subjectName;
+      this.studyMaterialService
+        .getStudyMaterial(subjectName, this.course.courseName)
+        .subscribe((res) => {
+          this.studyMaterial = res;
+        });
+    }
+  }
+
+  download(url: string) {
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', `Timetable.PNG`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    // this.showSuccess(
+    //   'Timetable for ' + courseName + ' downloaded successfully!'
+    // );
   }
 }
