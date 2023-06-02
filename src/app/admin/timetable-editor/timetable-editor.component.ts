@@ -38,7 +38,6 @@ export class TimetableEditorComponent {
     const id = this.route.snapshot.paramMap.get('courseId') || '1';
 
     this.coursesService.getCourse(id).subscribe((res) => {
-      debugger;
       this.course = res;
       this.getImageUrl(res?.courseName || '');
     });
@@ -111,10 +110,10 @@ export class TimetableEditorComponent {
     const file = event.target!.files[0]!;
     var formData = new FormData();
     console.log(courseName);
-    this.form.patchValue({
-      timetableFile: file,
-      courseName: courseName,
-    });
+    // this.form.patchValue({
+    //   timetableFile: file,
+    //   courseName: courseName,
+    // });
 
     formData.set('file', event.target!.files[0]!, event.target!.files[0]!.name);
     formData.set('courseName', courseName);

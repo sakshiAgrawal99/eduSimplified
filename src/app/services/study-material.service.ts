@@ -18,4 +18,21 @@ export class StudyMaterialService {
       { params }
     );
   }
+
+  postStudyMaterial(
+    formData: FormData,
+    subjectName: string,
+    courseName: string
+  ) {
+    debugger;
+    let params = new HttpParams();
+    params = params.append('courseName', courseName);
+    params = params.append('subjectName', subjectName);
+
+    return this.http.post<any[]>(
+      this.bseUrl + '/api/Storage/GetStudyMaterials',
+      formData,
+      { params }
+    );
+  }
 }
