@@ -20,4 +20,8 @@ export class AppComponent {
     this.router.navigateByUrl('/landing-page');
     return false;
   }
+
+  showHeader() {
+    return window.location.pathname !== '/landing-page';
+  }
 }
