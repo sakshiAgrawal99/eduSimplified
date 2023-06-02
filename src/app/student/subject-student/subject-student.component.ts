@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams, HttpRequest } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -6,11 +6,11 @@ import { CoursesService } from 'src/app/services/courses.service';
 import { StudyMaterialService } from 'src/app/services/study-material.service';
 
 @Component({
-  selector: 'app-subjects',
-  templateUrl: './subjects.component.html',
-  styleUrls: ['./subjects.component.css'],
+  selector: 'app-subject-student',
+  templateUrl: './subject-student.component.html',
+  styleUrls: ['./subject-student.component.css'],
 })
-export class SubjectsComponent {
+export class SubjectStudentComponent {
   subjectData: any[] = [];
   course: any = {};
   studyMaterial: any[] = [];
@@ -25,7 +25,7 @@ export class SubjectsComponent {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('courseId');
+    const id = JSON.parse(localStorage.getItem('user') || '{}').courseId;
     if (id) {
       this.coursesService.getSubjects(parseInt(id)).subscribe((res) => {
         this.subjectData = res;
@@ -56,25 +56,6 @@ export class SubjectsComponent {
     return 'btn-outline-dark';
   }
 
-  getBtnClass(index: number) {
-    if (index % 10 == 1 || index % 10 == 6) {
-      return 'btn-success';
-    }
-    if (index % 10 == 2 || index % 10 == 7) {
-      return 'btn-secondary';
-    }
-    if (index % 10 == 3 || index % 10 == 8) {
-      return 'btn-warning';
-    }
-    if (index % 10 == 4 || index % 10 == 9) {
-      return 'btn-primary';
-    }
-    if (index % 10 == 5 || index % 10 == 0) {
-      return 'btn-danger';
-    }
-    return 'btn-dark';
-  }
-
   public showSuccess(message: string): void {
     this.toastrService.success(message, '');
   }
@@ -102,39 +83,5 @@ export class SubjectsComponent {
     link.click();
     link.remove();
     // this.showSuccess('Study Material downloaded successfully!');
-  }
-
-  fileChange(event: any, subjectName: string) {
-    debugger;
-    if (subjectName && this.course.courseName) {
-      const file = event.target!.files[0]!;
-      var formData = new FormData();
-      formData.set(
-        'file',
-        event.target!.files[0]!,
-        event.target!.files[0]!.name
-      );
-      formData.set('courseName', this.course.courseName);
-      formData.set('subjectName', subjectName);
-
-      this.studyMaterialService
-        .postStudyMaterial(formData, subjectName, this.course.courseName)
-        .subscribe(
-          (response) => {
-            if (JSON.parse(JSON.stringify(response)).status == 200) {
-              this.showSuccess(
-                'StudyMaterial for ' + subjectName + ' uploaded successfully!'
-              );
-            }
-          },
-          (error) => {
-            if (JSON.parse(JSON.stringify(error)).status != 200) {
-              this.showError(
-                'File with this name already exists. Please use another name to store your file.'
-              );
-            }
-          }
-        );
-    }
   }
 }

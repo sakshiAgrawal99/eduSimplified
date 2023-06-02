@@ -3,11 +3,7 @@
         <div class="col-5 p-3" align="center" *ngFor="let subject of subjectData;let i = index ">
             <button type="button" class="btn block" [ngClass]="getClass(i)"
                 (click)="subjectClicked(subject.subjectName)">{{subject.subjectName}}</button>
-
-            <input hidden type="file" #smupload (change)="fileChange($event,subject.subjectName)">
-            <button class="card-link btn mt-2" [ngClass]="getBtnClass(i)" (click)="smupload.click()">Upload</button>
         </div>
-
     </ng-container>
 
 

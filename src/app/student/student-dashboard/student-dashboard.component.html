@@ -1,6 +1,7 @@
 <div class="p-5">
+    <p class="fs-2 fw-bold pb-2 pt-5">Messages</p>
     <div class="row mt-3 justify-content-center ">
-        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert"
+        <div class="alert alert-success alert-dismissible fade show mt-3 fst-italic" role="alert"
             *ngFor="let message of messageData">
             <strong> {{message.senderName}}</strong>
 
@@ -17,7 +18,7 @@
                             <p class="card-text">
                                 View relevant study materials based on your courses.
                             </p>
-                            <button href="#" class="btn btn-success">Proceed</button>
+                            <button href="#" class="btn btn-success" (click)="viewStudyMaterial()">Proceed</button>
                         </div>
                     </div>
                 </div>

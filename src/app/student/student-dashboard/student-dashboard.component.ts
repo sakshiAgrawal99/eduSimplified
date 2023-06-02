@@ -19,7 +19,6 @@ export class StudentDashboardComponent {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('studentId');
     if (id) {
-      debugger;
       this.sendMessageService.getStudentMessage(id).subscribe((res) => {
         this.messageData = res;
       });
@@ -31,9 +30,13 @@ export class StudentDashboardComponent {
   }
 
   openViewTimeTable() {
-    debugger;
     const id = this.route.snapshot.paramMap.get('studentId');
     this.router.navigateByUrl('/student/' + id + '/view-timetable');
+  }
+
+  viewStudyMaterial() {
+    const id = this.route.snapshot.paramMap.get('studentId');
+    this.router.navigateByUrl('/student/' + id + '/subjects');
   }
 
   public getDays(dateSent: Date) {
