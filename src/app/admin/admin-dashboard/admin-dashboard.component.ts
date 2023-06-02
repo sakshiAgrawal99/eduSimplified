@@ -24,8 +24,7 @@ export class AdminDashboardComponent {
     if (message && message.trim()) {
       const payload = {
         announcementText: message,
-        postedBy: JSON.parse(localStorage.getItem('user') || '{}').username,
-        postedAt: '2023-05-29T19:12:06.334Z',
+        postedBy: JSON.parse(localStorage.getItem('user') || '{}').fullName,
       };
       this.sendMessageService
         .sendAnnouncement(payload)

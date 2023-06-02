@@ -66,9 +66,8 @@ export class StudentDetailsComponent {
     if (message && message.trim()) {
       const payload = {
         messageContent: message,
-        senderName: JSON.parse(localStorage.getItem('user') || '{}').username,
+        senderName: JSON.parse(localStorage.getItem('user') || '{}').fullName,
         receiverId: this.selectedUserId,
-        createdDate: '2023-05-29T19:12:06.334Z',
       };
       this.sendMessageService.sendMessage(payload).subscribe((res: any) => {
         this.showSuccess();

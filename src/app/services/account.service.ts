@@ -28,7 +28,7 @@ export class AccountService {
     return this.http
       .post<User>(this.baseUrl + '/api/users/login', model, requestOptions)
       .pipe(
-        map((response: User) => {
+        map((response: any) => {
           const user = response;
           if (user) {
             this.setCurrentUser(user);

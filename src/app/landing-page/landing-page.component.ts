@@ -35,9 +35,12 @@ export class LandingPageComponent {
 
   login() {
     this.accountService.login(this.model).subscribe({
-      next: (user: User) => {
+      next: (user: any) => {
         if (user.role === 'Admin') {
           this.router.navigateByUrl('/admin/courses');
+        } else if (user.role === 'Student') {
+          debugger;
+          this.router.navigateByUrl('/student/' + user.courseId + '/dashboard');
         }
         this.model = {};
       },

@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CoursesService {
   bseUrl = 'https://bkbcollegemanagementapi.azure-api.net';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getCourses() {
     return this.http.get<any[]>(this.bseUrl + '/api/Courses');
@@ -16,5 +16,9 @@ export class CoursesService {
     return this.http.get<any[]>(
       this.bseUrl + '/api/courses/' + courseId + '/subjects'
     );
+  }
+
+  getCourse(courseId: string) {
+    return this.http.get<any>(this.bseUrl + '/api/Courses/' + courseId);
   }
 }

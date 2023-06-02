@@ -16,4 +16,10 @@ export class SendMessageService {
   sendAnnouncement(body = {}): Observable<any> {
     return this.http.post(this.baseUrl + '/api/Announcements', body).pipe();
   }
+
+  getStudentMessage(userId: string): Observable<any> {
+    return this.http
+      .get(this.baseUrl + '/api/users/' + userId + '/messages')
+      .pipe();
+  }
 }
