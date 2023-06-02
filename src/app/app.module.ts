@@ -20,6 +20,7 @@ import { SubjectsComponent } from './admin/subjects/subjects.component';
 import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
 import { ViewAnnouncementComponent } from './admin/view-announcement/view-announcement.component';
 import { ViewAnnouncementStudentsComponent } from './student/view-announcement-students/view-announcement-students.component';
+import { ViewTimetableStudentComponent } from './student/view-timetable-student/view-timetable-student.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
@@ -50,6 +51,10 @@ const routes: Routes = [
     path: 'student/:studentId/view-announcements',
     component: ViewAnnouncementStudentsComponent,
   },
+  {
+    path: 'student/:studentId/view-timetable',
+    component: ViewTimetableStudentComponent,
+  },
 ];
 
 @NgModule({
@@ -67,6 +72,7 @@ const routes: Routes = [
     StudentDashboardComponent,
     ViewAnnouncementComponent,
     ViewAnnouncementStudentsComponent,
+    ViewTimetableStudentComponent,
   ],
   imports: [
     BrowserModule,

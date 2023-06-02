@@ -39,8 +39,7 @@ export class LandingPageComponent {
         if (user.role === 'Admin') {
           this.router.navigateByUrl('/admin/courses');
         } else if (user.role === 'Student') {
-          debugger;
-          this.router.navigateByUrl('/student/' + user.courseId + '/dashboard');
+          this.router.navigateByUrl('/student/' + user.userID + '/dashboard');
         }
         this.model = {};
       },

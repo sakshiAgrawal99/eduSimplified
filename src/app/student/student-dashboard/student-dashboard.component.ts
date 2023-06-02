@@ -30,6 +30,12 @@ export class StudentDashboardComponent {
     this.router.navigateByUrl('/student/' + id + '/view-announcements');
   }
 
+  openViewTimeTable() {
+    debugger;
+    const id = this.route.snapshot.paramMap.get('studentId');
+    this.router.navigateByUrl('/student/' + id + '/view-timetable');
+  }
+
   public getDays(dateSent: Date) {
     let currentDate = new Date();
     dateSent = new Date(dateSent);
