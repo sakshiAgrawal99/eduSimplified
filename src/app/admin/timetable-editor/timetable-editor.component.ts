@@ -70,7 +70,7 @@ export class TimetableEditorComponent {
   }
 
   public getImageUrl(courseName: string) {
-    this.imageUrl = 'assets/Images/mscit_tt.png';
+    this.imageUrl = '';
     const url = this.baseURL + '/DownloadTimetable/' + courseName;
     const req = new HttpRequest('GET', url, { responseType: 'text' });
 
