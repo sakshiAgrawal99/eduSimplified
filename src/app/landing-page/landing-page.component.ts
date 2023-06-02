@@ -53,9 +53,7 @@ export class LandingPageComponent {
         this.model = {};
       },
       error: (msg: any) => {
-        this.showError(
-          'File with this name already exists. Please use another name to store your file.'
-        );
+        this.showError('Login Failed');
       },
     });
   }
