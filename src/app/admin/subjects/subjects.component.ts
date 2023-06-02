@@ -15,7 +15,7 @@ export class SubjectsComponent {
   course: any = {};
   studyMaterial: any[] = [];
   selectedSubjectName = '';
-
+  studyMaterialfetched = false;
   constructor(
     private route: ActivatedRoute,
     private coursesService: CoursesService,
@@ -90,6 +90,7 @@ export class SubjectsComponent {
         .getStudyMaterial(subjectName, this.course.courseName)
         .subscribe((res) => {
           this.studyMaterial = res;
+          this.studyMaterialfetched = true;
         });
     }
   }

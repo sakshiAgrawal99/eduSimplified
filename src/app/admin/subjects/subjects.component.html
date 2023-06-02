@@ -1,28 +1,36 @@
 <div class="p-5 m-5 row  justify-content-center align-items-center">
-    <ng-container *ngIf="subjectData.length>0">
-        <div class="col-5 p-3" align="center" *ngFor="let subject of subjectData;let i = index ">
-            <button type="button" class="btn block" [ngClass]="getClass(i)"
-                (click)="subjectClicked(subject.subjectName)">{{subject.subjectName}}</button>
+  <ng-container *ngIf="subjectData.length>0">
+    <div class="col-5 p-3" align="center" *ngFor="let subject of subjectData;let i = index ">
+      <button type="button" class="btn block" [ngClass]="getClass(i)"
+              (click)="subjectClicked(subject.subjectName)">
+        {{subject.subjectName}}
+      </button>
 
-            <input hidden type="file" #smupload (change)="fileChange($event,subject.subjectName)">
-            <button class="card-link btn mt-2" [ngClass]="getBtnClass(i)" (click)="smupload.click()">Upload</button>
-        </div>
-
-    </ng-container>
-
-
-    <div class="list-group mt-5 pt-5" *ngIf="studyMaterial.length>0">
-        <a href="#" class="list-group-item list-group-item-action active">
-            {{selectedSubjectName}}
-        </a>
-        <div class="row" *ngFor="let material of studyMaterial">
-            <div class="col-10">
-                <a class="list-group-item list-group-item-action" target="_blank"
-                    [href]="material.uri">{{material.name.split('/')[material.name.split('/').length-1]}}</a>
-            </div>
-            <div class="col-2 pt-1">
-                <button (click)="download(material.uri)" class="card-link btn btn-primary">Download</button>
-            </div>
-        </div>
+      <input hidden type="file" #smupload (change)="fileChange($event,subject.subjectName)">
+      <button class="card-link btn mt-2" [ngClass]="getBtnClass(i)" (click)="smupload.click()">Upload</button>
     </div>
+
+  </ng-container>
+
+
+
+  <div class="list-group mt-5 pt-5" *ngIf="studyMaterial.length>0">
+    <a href="#" class="list-group-item list-group-item-action active">
+      {{selectedSubjectName}}
+    </a>
+    <div class="row" *ngFor="let material of studyMaterial">
+      <div class="col-10">
+        <a class="list-group-item list-group-item-action" target="_blank"
+           [href]="material.uri">{{material.name.split('/')[material.name.split('/').length-1]}}</a>
+      </div>
+      <div class="col-2 pt-1">
+        <button (click)="download(material.uri)" class="card-link btn btn-primary">Download</button>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="studyMaterial.length===0 && studyMaterialfetched">
+    <div class="col-3 p-4">
+      <h5 style="color:Red;">No study material found for this subject</h5>
+    </div>
+  </ng-container>
 </div>

@@ -30,7 +30,7 @@ export class StudyMaterialService {
     params = params.append('subjectName', subjectName);
 
     return this.http.post<any[]>(
-      this.bseUrl + '/api/Storage/GetStudyMaterials',
+      'https://bkbcollegemanagement20230514173450.azurewebsites.net/api/Storage/UploadStudyMaterial',
       formData,
       { params }
     );
