@@ -45,12 +45,13 @@
         <div class="card" style="width: 18rem">
           <img class="card-img-top" src="assets/Images/adminLogo.jpg" alt="Card image cap" style="height: 15rem" />
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Admin</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              Select to login with Admin Credentials
             </p>
-            <a href="#" class="btn btn-secondary">Admin Login</a>
+            <button href="#" class="btn btn-secondary" [ngClass]="{'btn-black': selectedUser==='Admin'}"
+              (click)="selectedUser='Admin'">Admin
+              Login</button>
           </div>
         </div>
       </div>
@@ -58,18 +59,22 @@
         <div class="card" style="width: 18rem">
           <img class="card-img-top" src="assets/Images/studentLogo.jpg" alt="Card image cap" style="height: 15rem" />
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Student</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              Select to login with Student Credentials
             </p>
-            <a href="#" class="btn btn-secondary">Student Login</a>
+            <button href="#" class="btn btn-secondary" [ngClass]="{'btn-black': selectedUser==='Student'}"
+              (click)="selectedUser='Student'">Student
+              Login</button>
           </div>
         </div>
       </div>
     </div>
+
     <div class="col-md-6 col-sm-12 offset-2">
       <div class="login-form">
+        <p class="fs-2 fw-bold pb-4">Please ender {{selectedUser}} Credentials</p>
+
         <form #f="ngForm" (ngSubmit)="f.form.valid &&  login()" autocomplete="off">
           <div class="form-group">
             <label>User Name</label>

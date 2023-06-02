@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { AccountService } from '../services/account.service';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
@@ -11,11 +11,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LandingPageComponent {
   model: any = {};
+  selectedUser = 'Admin';
 
   constructor(
     public accountService: AccountService,
     private router: Router,
-    public toastrService: ToastrService
+    public toastrService: ToastrService,
+    private el: ElementRef
   ) {
     this.IsUserLoggedIn();
   }
